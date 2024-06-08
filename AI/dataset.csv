@@ -1,0 +1,88 @@
+prompt,label
+"Quiero que la imagen esté en blanco y negro",0
+"Quita el color a la imagen",0
+"Blanco y negro",0
+"Quiero que la imagen esté en blanco y negro",0
+"Quiero que la imagen esté en color",1
+"Quiero que la imagen no esté en color",0
+"Haz que la imagen esté en blanco y negro",0
+"Haz que la imagen esté en color",1
+"Difumina la imagen",2
+"Aplica un blur a la imagen",2
+"La imagen debe verse blurried", 2
+"Aplicar blur a la imagen", 2
+"Blur",2
+"Blurried", 2
+"La imagen debería estar con un blur", 2
+"Haz que la imagen se vea borrosa",2
+"Transforma la imagen a blanco y negro",0
+"Mantén la imagen en color",1
+"Convierte la imagen a escala de grises",0
+"Haz que la imagen sea colorida",1
+"Quiero una imagen en blanco y negro",0
+"Quiero una imagen en colores",1
+"Blanco y negro por favor",0
+"Por favor, pon la imagen en color",1
+"Aplica desenfoque a la imagen",2
+"Haz que la imagen sea menos clara",2
+"Quiero que la imagen esté desenfocada",2
+"Cambia la imagen a blanco y negro",0
+"Pon la imagen en color",1
+"Imagen en blanco y negro",0
+"Imagen en colores",1
+"Escala de grises por favor",0
+"Quiero la imagen en color",1
+"Desenfoca esta imagen",2
+"Quiero que esta imagen esté desenfocada",2
+"Aplicar desenfoque a esta imagen",2
+"Convierte esta imagen en blanco y negro",0
+"Convierte esta imagen a color",1
+"Pasar la imagen a blanco y negro",0
+"Pasar la imagen a color",1
+"Pon esta imagen en escala de grises",0
+"Pon esta imagen en colores",1
+"Hacer que la imagen esté en blanco y negro",0
+"Hacer que la imagen esté en color",1
+"Aplica un efecto de desenfoque",2
+"Desenfoca la imagen por favor",2
+"Quiero que esta imagen se vea borrosa",2
+"Transformar a escala de grises",0
+"Transformar a color",1
+"Imagen borrosa",2
+"Quiero una imagen borrosa",2
+"Pasar imagen a escala de grises",0
+"Pasar imagen a colores",1
+"Quiero una imagen gris",0
+"Quiero una imagen con colores",1
+"Hacer imagen en blanco y negro",0
+"Hacer imagen en colores",1
+"Desenfocar imagen",2
+"Aplica desenfoque",2
+"Imagen gris por favor",0
+"Imagen color por favor",1
+"Quiero imagen en blanco y negro",0
+"Quiero imagen en color",1
+"Blanco y negro",0
+"Color",1
+"Desenfoque",2
+"Borrar imagen",2
+"Imagen desenfocada",2
+"Imagen a blanco y negro",0
+"Imagen a color",1
+"Haz que la imagen se vea clara",1
+"Haz que la imagen se vea en gris",0
+"Convierte la imagen a escala de grises por favor",0
+"Haz la imagen en color",1
+"Aplica desenfoque suave",2
+"Quiero un desenfoque en la imagen",2
+"Transforma a escala de grises",0
+"Transforma a colores",1
+"Quiero que la imagen sea gris",0
+"Quiero que la imagen sea colorida",1
+"Aplica un efecto borroso",2
+"Borra esta imagen",2
+"Imagen con efecto desenfoque",2
+"Imagen con efecto de escala de grises",0
+"Imagen con efecto de color",1
+"Haz la imagen clara",1
+"Haz la imagen en gris",0
