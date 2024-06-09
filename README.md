@@ -1,5 +1,10 @@
 # AI Image Editor
 
+## Pre-req
+- NodeJS
+- Python
+- RabbitMQ (will need Erlang)
+
 ## How to use
 
 1º Create a Python venv
