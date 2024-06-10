@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
     margin: 0;
     padding: 0;
@@ -79,4 +80,87 @@ body {
 #result {
     max-width: 50vw;
     max-height: 90vh;
+=======
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Product Sans', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#preview {
+    max-width: 45vw;
+    max-height: 55vh;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right form {
+
+    height: 90%;
+    text-align: center;
+    display: grid;
+    grid-template-rows: 5fr 25px 25px;
+}
+
+/*Searchbar que tiene un botón para subir archivos (izquiera), el campo de texto, y el botón de buscar*/
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.btnFile {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+#prompt {
+    font-size: 20px;
+    position: relative;
+    bottom: 18px;
+    padding: 8px;
+    border-radius: 15px;
+    border: 0;
+    outline: 0;
+
+}
+
+#submitBtn {
+    position: relative;
+    bottom: 18px;
+    padding: 8px;
+    font-size: 20px;
+    border: 0;
+    outline: 0;
+    border-radius: 15px;
+}
+
+#result {
+    max-width: 50vw;
+    max-height: 90vh;
+>>>>>>> d2aab1ef5b14bdc0c399f32b737df35219010fb8
 }
