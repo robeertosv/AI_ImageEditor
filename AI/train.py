@@ -4,7 +4,7 @@ from transformers import DistilBertTokenizerFast, DistilBertForSequenceClassific
 import torch
 
 
-datos = pd.read_csv('./AI/dataset.csv')
+datos = pd.read_csv('AI/dataset.csv')
 
 prompts = []
 labels = []

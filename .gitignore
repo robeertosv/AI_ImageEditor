@@ -1,0 +1,7 @@
+node_modules
+model.*
+.idea
+__pycache__
+trained_model
+
+uploads
