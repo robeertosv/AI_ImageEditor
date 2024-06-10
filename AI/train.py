@@ -65,9 +65,14 @@ trainer = Trainer(
     eval_dataset=val_dataset,
 )
 
-# Entrenar el modelo
-trainer.train()
 
-# Guardar el modelo entrenado
-model.save_pretrained('./trained_model')
-tokenizer.save_pretrained('./trained_model')
+def trainModel():
+    # Entrenar el modelo
+    trainer.train()
+
+    # Guardar el modelo entrenado
+    model.save_pretrained('./AI/trained_model')
+    tokenizer.save_pretrained('./AI/trained_model')
+    
+if __name__ == '__main__':
+    trainModel()

@@ -5,3 +5,5 @@ __pycache__
 trained_model
 
 uploads
+logs.*
+log.*

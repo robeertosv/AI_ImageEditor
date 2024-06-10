@@ -25,6 +25,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'views')))
 app.use(express.json())
 
+let iters = 0;
+
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views/index.html'))
@@ -55,6 +57,42 @@ app.post('/prompt', (req, res) => {
     })
 })
 
+app.post('/rating', (req, res) => {
+    const { info } = req.body;
+
+    console.log(info)
+
+    if (info.rating == 0) {
+        // Append logs.txt with comment
+        fs.appendFileSync('logs.txt', info.comment + '\n');
+        return res.send('OK')
+    } else {
+        // Append AI/dataset.txt with prompt, result, and rating
+        fs.appendFileSync('AI/dataset.csv', '"' + info.prompt + '"' + ', ' + parseInt(info.result) + '\n');
+        iters++;
+
+        if (iters == 50) {
+            // Train the AI
+            fetch('http://localhost/train', { method: 'POST', redirect: 'follow' })
+        }
+
+        return res.send('OK')
+    }
+
+})
+
+app.post('/train', (req, res) => {
+    amqp.connect('amqp://localhost', (err, conn) => {
+        conn.createChannel((err, ch) => {
+            let q = 'prompt';
+            ch.assertQueue(q, { durable: false });
+            ch.sendToQueue(q, Buffer.from('RETRAIN'));
+            console.log("Mensaje de reentreno enviado")
+        })
+    })
+
+    iters = 0;
+})
 
 amqp.connect('amqp://localhost', (err, conn) => {
     conn.createChannel((err, ch) => {

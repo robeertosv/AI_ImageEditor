@@ -76,7 +76,36 @@ body {
     border-radius: 15px;
 }
 
+/* Resultados */
+
 #result {
     max-width: 50vw;
     max-height: 90vh;
+}
+
+.left {
+    display: grid;
+    grid-template-rows: 5fr 1fr;
+}
+
+.left .resultImage {
+    display: flex;
+    align-items: center;
+}
+
+.left .rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left .rating button {
+    padding: 20px;
+    margin: 0 40px;
+    cursor: pointer;
+    border-radius: 15px;
+    border: 0;
+    outline: 0;
+    font-size: 20px;
+    font-weight: bold;
 }

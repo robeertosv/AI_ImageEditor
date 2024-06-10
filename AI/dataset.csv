@@ -86,3 +86,5 @@ prompt,label
 "Imagen con efecto de color",1
 "Haz la imagen clara",1
 "Haz la imagen en gris",0
+"Borra el color de la foto", 0
+"Difumina la foto", 2
