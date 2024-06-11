@@ -24,7 +24,7 @@ train_texts, val_texts, train_labels, val_labels = train_test_split(data['prompt
 
 # Cargar el tokenizer y el modelo
 tokenizer = DistilBertTokenizerFast.from_pretrained('distilbert-base-uncased')
-model = DistilBertForSequenceClassification.from_pretrained('distilbert-base-uncased', num_labels=3)
+model = DistilBertForSequenceClassification.from_pretrained('distilbert-base-uncased', num_labels=4)
 
 # Tokenizar los textos
 train_encodings = tokenizer(train_texts, truncation=True, padding=True)

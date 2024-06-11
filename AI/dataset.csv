@@ -3,10 +3,8 @@ prompt,label
 "Quita el color a la imagen",0
 "Blanco y negro",0
 "Quiero que la imagen esté en blanco y negro",0
-"Quiero que la imagen esté en color",1
 "Quiero que la imagen no esté en color",0
 "Haz que la imagen esté en blanco y negro",0
-"Haz que la imagen esté en color",1
 "Difumina la imagen",2
 "Aplica un blur a la imagen",2
 "La imagen debe verse blurried", 2
@@ -16,76 +14,108 @@ prompt,label
 "La imagen debería estar con un blur", 2
 "Haz que la imagen se vea borrosa",2
 "Transforma la imagen a blanco y negro",0
-"Mantén la imagen en color",1
 "Convierte la imagen a escala de grises",0
-"Haz que la imagen sea colorida",1
 "Quiero una imagen en blanco y negro",0
-"Quiero una imagen en colores",1
 "Blanco y negro por favor",0
-"Por favor, pon la imagen en color",1
 "Aplica desenfoque a la imagen",2
 "Haz que la imagen sea menos clara",2
 "Quiero que la imagen esté desenfocada",2
 "Cambia la imagen a blanco y negro",0
-"Pon la imagen en color",1
 "Imagen en blanco y negro",0
-"Imagen en colores",1
 "Escala de grises por favor",0
-"Quiero la imagen en color",1
 "Desenfoca esta imagen",2
 "Quiero que esta imagen esté desenfocada",2
 "Aplicar desenfoque a esta imagen",2
 "Convierte esta imagen en blanco y negro",0
-"Convierte esta imagen a color",1
 "Pasar la imagen a blanco y negro",0
-"Pasar la imagen a color",1
 "Pon esta imagen en escala de grises",0
-"Pon esta imagen en colores",1
 "Hacer que la imagen esté en blanco y negro",0
-"Hacer que la imagen esté en color",1
 "Aplica un efecto de desenfoque",2
 "Desenfoca la imagen por favor",2
 "Quiero que esta imagen se vea borrosa",2
 "Transformar a escala de grises",0
-"Transformar a color",1
 "Imagen borrosa",2
 "Quiero una imagen borrosa",2
 "Pasar imagen a escala de grises",0
-"Pasar imagen a colores",1
 "Quiero una imagen gris",0
-"Quiero una imagen con colores",1
 "Hacer imagen en blanco y negro",0
-"Hacer imagen en colores",1
 "Desenfocar imagen",2
 "Aplica desenfoque",2
 "Imagen gris por favor",0
-"Imagen color por favor",1
 "Quiero imagen en blanco y negro",0
-"Quiero imagen en color",1
 "Blanco y negro",0
-"Color",1
 "Desenfoque",2
 "Borrar imagen",2
 "Imagen desenfocada",2
 "Imagen a blanco y negro",0
-"Imagen a color",1
-"Haz que la imagen se vea clara",1
 "Haz que la imagen se vea en gris",0
 "Convierte la imagen a escala de grises por favor",0
-"Haz la imagen en color",1
 "Aplica desenfoque suave",2
 "Quiero un desenfoque en la imagen",2
 "Transforma a escala de grises",0
-"Transforma a colores",1
 "Quiero que la imagen sea gris",0
-"Quiero que la imagen sea colorida",1
 "Aplica un efecto borroso",2
 "Borra esta imagen",2
 "Imagen con efecto desenfoque",2
 "Imagen con efecto de escala de grises",0
-"Imagen con efecto de color",1
-"Haz la imagen clara",1
 "Haz la imagen en gris",0
 "Borra el color de la foto", 0
 "Difumina la foto", 2
 "Que la foto esté en blanco y negro", 0
+"Contrasta esta imágen",1
+"Aumenta el contraste de la imagen",1
+"Aplica un aumento de contraste en la imagen",1
+"Haz que la imagen se vea más contrastada",1
+"Haz que la imagen tenga un mejor contraste",1
+"Modifica el contraste de la imagen",1
+"Contrasta esta imagen",1
+"Mejora el contraste de la imagen", 1
+"Incrementa el contraste en la imagen", 1
+"Ajusta el contraste de esta imagen", 1
+"Realza el contraste de la imagen", 1
+"Optimiza el contraste de la imagen", 1
+"Haz la imagen más contrastada", 1
+"Eleva el contraste de la imagen", 1
+"Aumenta la intensidad del contraste en la imagen", 1
+"Enfoca más el contraste de la imagen", 1
+"Refuerza el contraste de esta imagen", 1
+"Haz que el contraste de la imagen sea más evidente", 1
+"Aplica un mayor contraste a la imagen", 1
+"Modifica esta imagen para mejorar el contraste", 1
+"Haz que el contraste de la imagen sea más claro", 1
+"Realza los contrastes en la imagen", 1
+"Ajusta la imagen para un mejor contraste", 1
+"Haz que esta imagen tenga un contraste superior", 1
+"Incrementa los niveles de contraste de la imagen", 1
+"Añade más contraste a esta imagen", 1
+"Haz que la imagen resalte con más contraste", 1
+"Mejora los niveles de contraste en esta imagen", 1
+"Refina el contraste de la imagen", 1
+"Haz que el contraste de esta imagen se note más", 1
+"Aumenta la nitidez del contraste en la imagen", 1
+"Haz que la imagen tenga un contraste más fuerte", 1
+"Aumenta el brillo de la imagen", 3
+"Incrementa el brillo en la imagen", 3
+"Haz que la imagen sea más brillante", 3
+"Eleva el brillo de la imagen", 3
+"Haz la imagen más luminosa", 3
+"Mejora la luminosidad de la imagen", 3
+"Realza el brillo de la imagen", 3
+"Aplica un aumento de brillo en la imagen", 3
+"Modifica el brillo de la imagen", 3
+"Optimiza la luminosidad de la imagen", 3
+"Haz que la imagen tenga un mejor brillo", 3
+"Ajusta el brillo de esta imagen", 3
+"Haz que el brillo de la imagen sea más evidente", 3
+"Refuerza el brillo de esta imagen", 3
+"Añade más brillo a la imagen", 3
+"Haz que la imagen se vea más brillante", 3
+"Incrementa los niveles de brillo de la imagen", 3
+"Haz que el brillo de la imagen sea más claro", 3
+"Ajusta la imagen para un mejor brillo", 3
+"Mejora los niveles de brillo en esta imagen", 3
+"Aumenta la claridad de la imagen", 3
+"Refina el brillo de la imagen", 3
+"Haz que esta imagen tenga una mayor luminosidad", 3
+"Aumenta la intensidad del brillo en la imagen", 3
+"Haz que la imagen resalte con más brillo", 3

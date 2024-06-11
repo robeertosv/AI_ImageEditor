@@ -2,12 +2,17 @@ import pika
 import sys
 import os
 import inference
-from PIL import Image, ImageFilter
+from PIL import Image, ImageFilter, ImageEnhance
 
-lookup = ["bn", "color", "blur", "bright", "contrast"]
+lookup = ["bn", "contrast", "blur", "bright"]
+img_path = sys.path[0] + '\\..\\' +'uploads\\image.png'
 
+def reiniciar_script():
+    python = sys.executable
+    os.execl(python, python, *sys.argv)
 
 def main():
+    print(img_path)
     connection = pika.BlockingConnection(
         pika.ConnectionParameters(host='localhost'))
     channel = connection.channel()
@@ -23,6 +28,7 @@ def main():
             import multiprocessing
             p = multiprocessing.Process(target=train.trainModel)
             p.start()
+            
         else:
             num = inference.predict_action(prompt)
             print("Resultado de la prediccion: ", num)
@@ -32,12 +38,11 @@ def main():
                 blurImage()
             elif lookup[num] == "bn":
                 BN()
-            elif lookup[num] == "color":
-                sendStatus(1)
-            elif lookup[num] == "bright":
-                aumentarBrillo()
             elif lookup[num] == "contrast":
-                aumentarContraste()
+                contraste()
+            elif lookup[num] == "bright":
+                brillo()
+                
 
     channel.basic_consume(
         queue='prompt', on_message_callback=callback, auto_ack=True)
@@ -45,19 +50,40 @@ def main():
     print(' [*] Waiting for messages. To exit press CTRL+C')
     channel.start_consuming()
 
+def contraste():
+    try:
+        im = Image.open(img_path) 
+    
+        enh = ImageEnhance.Contrast(im)  
+        im = enh.enhance(1.8)
+        im.save(img_path)
+        sendStatus(1)
+    except:
+        print("Error al procesar la imagen")
 
+def brillo():
+    try:
+        imagen = Image.open(img_path)
+        enhancer = ImageEnhance.Brightness(imagen)
+        factor = 1.5  # Puedes ajustar este valor para aumentar más o menos el brillo
+        imagen_bril = enhancer.enhance(factor)
+
+        # Guardar la imagen resultante
+        imagen_bril.save(img_path)
+        sendStatus(3)
+    except:
+        print("Error al procesar la imagen")
+        
 def BN():
     try:
         # Abrir la imagen
-        img = Image.open(
-            'C:\\Users\\Roberto\\PycharmProjects\\AI_ImageEditor\\uploads\\image.png')
+        img = Image.open(img_path)
 
         # Convertir la imagen a escala de grises
         bw_img = img.convert('L')
 
         # Sobrescribir la imagen original
-        bw_img.save(
-            'C:\\Users\\Roberto\\PycharmProjects\\AI_ImageEditor\\uploads\\image.png')
+        bw_img.save(img_path)
         sendStatus(0)
     except Exception as e:
         print(f"Error al procesar la imagen: {e}")
@@ -69,39 +95,14 @@ def blurImage():
     try:
         # Obtener path
 
-        img = Image.open(
-            'C:\\Users\\Roberto\\PycharmProjects\\AI_ImageEditor\\uploads\\image.png')
+        img = Image.open(img_path)
         blurred = img.filter(ImageFilter.GaussianBlur(5))
-        blurred.save(
-            'C:\\Users\\Roberto\\PycharmProjects\\AI_ImageEditor\\uploads\\image.png')
+        blurred.save(img_path)
         sendStatus(2)
 
     except Exception as e:
         print(e)
 
-def aumentarBrillo():
-    try:
-        img = Image.open(
-            'C:\\Users\\Roberto\\PycharmProjects\\AI_ImageEditor\\uploads\\image.png')
-        img = img.point(lambda p: p * 1.9)
-        img.save(
-            'C:\\Users\\Roberto\\PycharmProjects\\AI_ImageEditor\\uploads\\image.png')
-        sendStatus()
-
-    except Exception as e:
-        print(e)
-
-def aumentarContraste():
-    try:
-        img = Image.open(
-            'C:\\Users\\Roberto\\PycharmProjects\\AI_ImageEditor\\uploads\\image.png')
-        img = img.point(lambda p: p * 1.9)
-        img.save(
-            'C:\\Users\\Roberto\\PycharmProjects\\AI_ImageEditor\\uploads\\image.png')
-        sendStatus()
-
-    except Exception as e:
-        print(e)
 
 def sendStatus(code:int):
     connection = pika.BlockingConnection(
