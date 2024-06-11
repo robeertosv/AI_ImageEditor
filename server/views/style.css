@@ -61,7 +61,7 @@ body {
     bottom: 18px;
     padding: 8px;
     border-radius: 15px;
-    border: 0;
+    border: 2px solid orange;
     outline: 0;
 
 }
@@ -74,7 +74,9 @@ body {
     border: 0;
     outline: 0;
     border-radius: 15px;
+    background: linear-gradient(45deg, yellow, orange);
 }
+
 
 /* Resultados */
 
