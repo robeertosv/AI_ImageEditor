@@ -5,18 +5,19 @@ import inference
 from PIL import Image, ImageFilter, ImageEnhance
 
 lookup = ["bn", "contrast", "blur", "bright"]
-img_path = sys.path[0] + '\\..\\' +'uploads\\image.png'
+img_path = sys.path[0] + '\\..\\' +'uploads\\image.png' # Use if Local
+#img_path = '/app/uploads/image.png' # Use if Docker
 
-def reiniciar_script():
-    python = sys.executable
-    os.execl(python, python, *sys.argv)
+# Use if Docker
+#credentials = pika.PlainCredentials('user', 'password')
+#connection = pika.BlockingConnection(pika.ConnectionParameters(host='rabbitmq', port=5672, virtual_host='/', credentials=credentials))
+
+# Use if Local
+connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+channel = connection.channel()
+
 
 def main():
-    print(img_path)
-    connection = pika.BlockingConnection(
-        pika.ConnectionParameters(host='localhost'))
-    channel = connection.channel()
-
     channel.queue_declare(queue='prompt')
 
     def callback(ch, method, properties, body):
@@ -105,16 +106,10 @@ def blurImage():
 
 
 def sendStatus(code:int):
-    connection = pika.BlockingConnection(
-        pika.ConnectionParameters(host='localhost'))
-
-    channel = connection.channel()
-
     channel.queue_declare(queue='result')
 
     channel.basic_publish(exchange='', routing_key='result', body=str(code))
     print(" [x] Editing complete'")
-    connection.close()
 
 
 if __name__ == '__main__':

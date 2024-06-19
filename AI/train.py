@@ -2,12 +2,14 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from transformers import DistilBertTokenizerFast, DistilBertForSequenceClassification, Trainer, TrainingArguments
 import torch
+import sys
 
 
-datos = pd.read_csv('AI/dataset.csv')
+datos = pd.read_csv('dataset.csv')
 
 prompts = []
 labels = []
+path = img_path = sys.path[0] + '\\trained_model' # Use if Local
 
 for i in range(len(datos['prompt'])):
     prompts.append(datos['prompt'][i])
@@ -71,8 +73,11 @@ def trainModel():
     trainer.train()
 
     # Guardar el modelo entrenado
-    model.save_pretrained('./AI/trained_model')
-    tokenizer.save_pretrained('./AI/trained_model')
+    #model.save_pretrained('/app/trained_model')
+    #tokenizer.save_pretrained('/app/trained_model')
+    
+    model.save_pretrained(path)
+    tokenizer.save_pretrained(path)
     
 if __name__ == '__main__':
     trainModel()

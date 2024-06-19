@@ -1,14 +1,21 @@
 const express = require('express')
 const path = require('path')
-const amqp = require('amqplib/callback_api')
+const amqp = require('amqplib/callback_api.js')
 const multer = require('multer');
 const bodyParser = require('body-parser')
 const http = require('http')
 const socketIo = require('socket.io')
 const fs = require('fs')
 
+const host = 'rabbitmq'
+const user = 'user'
+const pass = 'password'
+const mqport = 5672
+
 const storage = multer.diskStorage({
-    destination: 'uploads/',
+    //destination: '/app/uploads/', // For Docker
+
+    destination: '../uploads/', // For local
     filename: (req, file, cb) => {
         const ext = path.extname(file.originalname);
         cb(null, file.fieldname + ext);
@@ -48,7 +55,8 @@ app.post('/prompt', (req, res) => {
     console.log(prompt)
     res.send(prompt)
 
-    amqp.connect('amqp://localhost', (err, conn) => {
+    //amqp.connect(`amqp://${user}:${pass}@${host}:${mqport}`, (err, conn) => {
+    amqp.connect(`amqp://localhost`, (err, conn) => {
         conn.createChannel((err, ch) => {
             let q = 'prompt';
             ch.assertQueue(q, { durable: false });
@@ -82,7 +90,8 @@ app.post('/rating', (req, res) => {
 })
 
 app.post('/train', (req, res) => {
-    amqp.connect('amqp://localhost', (err, conn) => {
+    //amqp.connect(`amqp://${user}:${pass}@${host}:${mqport}`, (err, conn) => {
+    amqp.connect(`amqp://localhost`, (err, conn) => {
         conn.createChannel((err, ch) => {
             let q = 'prompt';
             ch.assertQueue(q, { durable: false });
@@ -94,7 +103,9 @@ app.post('/train', (req, res) => {
     iters = 0;
 })
 
-amqp.connect('amqp://localhost', (err, conn) => {
+//amqp.connect(`amqp://${user}:${pass}@${host}:${mqport}`, (err, conn) => {
+amqp.connect(`amqp://localhost`, (err, conn) => {
+    if(err) { throw err; }
     conn.createChannel((err, ch) => {
         let q = 'result';
         ch.assertQueue(q, { durable: false });

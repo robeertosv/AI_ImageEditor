@@ -1,0 +1,50 @@
+name: ai-image-editor
+services:
+
+  rabbitmq:
+    restart: always
+    tty: true
+    stdin_open: true
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=password
+  
+  web:
+    build:
+      context: server
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - rabbitmq
+    volumes:
+      - uploads:/app/uploads
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USER=user
+      - RABBITMQ_PASS=password
+  
+  worker:
+    build:
+      context: AI
+      dockerfile: Dockerfile
+    depends_on:
+      - rabbitmq
+    volumes:
+      - uploads:/app/uploads
+      - trained_model:/app/trained_model
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USER=user
+      - RABBITMQ_PASS=password
+    
+volumes:
+  trained_model:
+  uploads:
+    driver: local
